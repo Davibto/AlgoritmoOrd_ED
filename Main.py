@@ -1,72 +1,17 @@
 from Algoritmos import Algoritmos
+from Menu import escolherAlgoritmo, lerArquivo
 import time
 
 
-arquivo = "instancias-num/num.100000.4.in"
-
 lista = []
 
-with open(arquivo, 'r') as arquivo:
-    arq = arquivo.readlines()
+opcao1 = input('Escolha qual arquivo será usado: \n1 - num.1000.1.in\n2 - num.1000.2.in\n3 - num.1000.3.in\n4 - num.1000.4.in\n5 - num.10000.1.in\n6 - num.10000.2.in\n7 - num.10000.3.in\n8 - num.10000.4.in\n9 - num.100000.1.in\n10 - num.100000.2.in\n11 - num.100000.3.in\n12 - num.100000.4.in\n0 - Sair\n')
+lista = lerArquivo(opcao1)
 
-for linha in arq:
-    num = int(linha)
-    lista.append(num)
 
-opcao = input("Escolha qual algoritmo sera utilizado: \n1 - SelectionSort\n2 - BubbleSort\n3 - InsertionSort\n4 - MergeSort\n5 - QuickSort\n6 - BogoSort\n0 - Sair\n")
 
-while(opcao != '0'):
-    if opcao == '1':
-        ini = time.time()
-        Algoritmos().selection_sort(lista)
-        fim = time.time()
-        tempo_total = fim - ini
-        print("Tempo total:", tempo_total, "segundos")      
-        break
-
-    elif opcao == '2':
-        ini = time.time()
-        Algoritmos().bubble_sort(lista)
-        fim = time.time()
-        tempo_total = fim - ini
-        print("Tempo total:", tempo_total, "segundos")     
-        break
-
-    elif opcao == '3':
-        ini = time.time()
-        Algoritmos().insertion_sort(lista)
-        fim = time.time()
-        tempo_total = fim - ini
-        print("Tempo total:", tempo_total, "segundos")      
-        break
-
-    elif opcao == '4':
-        ini = time.time()
-        Algoritmos().merge_sort(lista)
-        fim = time.time()
-        tempo_total = fim - ini
-        print("Tempo total:", tempo_total, "segundos")     
-        break
-
-    elif opcao == '5':
-        ini = time.time()
-        Algoritmos().quick_sort(lista)
-        fim = time.time()
-        tempo_total = fim - ini
-        print("Tempo total:", tempo_total, "segundos")      
-        break
-
-    elif opcao == '6':
-        ini = time.time()
-        Algoritmos().bogo_sort(lista)
-        fim = time.time()
-        tempo_total = fim - ini
-        print("Tempo total:", tempo_total, "segundos")
-        break
-
-    else:
-        print("Opcao invalida")
-        break
+opcao2 = input("Escolha qual algoritmo sera utilizado: \n1 - SelectionSort\n2 - BubbleSort\n3 - InsertionSort\n4 - MergeSort\n5 - QuickSort\n6 - BogoSort\n7 - Comparar todos os tempos(menos BogoSort)\n0 - Sair\n")
+escolherAlgoritmo(opcao2,lista)
 
 
 
